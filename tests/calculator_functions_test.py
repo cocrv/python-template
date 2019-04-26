@@ -1,6 +1,6 @@
 import string
 
-from context import core
+from context import calc_func
 from random import randint, uniform, choice
 
 MIN_NUM = 0
@@ -19,37 +19,37 @@ randomString         = "".join(choice(allchar) for x in range(randint(MIN_CHAR, 
 
 def test_add_ShouldAddValues():
     expectedReturnValue = randomInteger + secondRandomInteger
-    assert core.add(randomInteger, secondRandomInteger) == expectedReturnValue
+    assert calc_func.add(randomInteger, secondRandomInteger) == expectedReturnValue
 
 def test_add_ShouldNotAllowStrings():
     expectedReturnValue = "You must provide a number."
-    assert core.add(randomInteger, randomString) == expectedReturnValue
+    assert calc_func.add(randomInteger, randomString) == expectedReturnValue
 
 def test_multiply_ShouldMultiplyValues():
     expectedReturnValue = randomInteger * secondRandomInteger
-    assert core.multiply(randomInteger, secondRandomInteger) == expectedReturnValue
+    assert calc_func.multiply(randomInteger, secondRandomInteger) == expectedReturnValue
 
 def test_multiply_ShouldNotAllowStrings():
     expectedReturnValue = "You must provide a number."
-    assert core.multiply(randomInteger, randomString) == expectedReturnValue
+    assert calc_func.multiply(randomInteger, randomString) == expectedReturnValue
 
 def test_divide_ShouldDivideValues():
     expectedReturnValue = randomFloat / secondRandomFloat
-    assert core.divide(randomFloat, secondRandomFloat) == expectedReturnValue
+    assert calc_func.divide(randomFloat, secondRandomFloat) == expectedReturnValue
 
 def test_divide_ShouldNotAllowStrings():
     expectedReturnValue = "You must provide a number."
-    assert core.divide(randomInteger, randomString) == expectedReturnValue
+    assert calc_func.divide(randomInteger, randomString) == expectedReturnValue
 
 def test_divide_ShouldHandleDivideByZero():
     expectedReturnValue = "You can't divide by zero."
-    assert core.divide(randomFloat, 0) == expectedReturnValue
+    assert calc_func.divide(randomFloat, 0) == expectedReturnValue
 
 def test_subtract_ShouldSubtractValues():
     expectedReturnValue = randomFloat - secondRandomFloat
-    assert core.subtract(randomFloat, secondRandomFloat) == expectedReturnValue
+    assert calc_func.subtract(randomFloat, secondRandomFloat) == expectedReturnValue
 
 def test_subtract_ShouldNotAllowStrings():
     expectedReturnValue = "You must provide a number."
-    assert core.subtract(randomInteger, randomString) == expectedReturnValue
+    assert calc_func.subtract(randomInteger, randomString) == expectedReturnValue
 

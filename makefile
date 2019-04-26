@@ -8,5 +8,5 @@ install:
 
 test:
 	py.test --verbose tests 
-	pytest --cov=calculator --cov-fail-under=100 tests/
+	pytest --cov=src --cov-fail-under=100 tests/
 

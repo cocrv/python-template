@@ -4,5 +4,6 @@ init:
 	pip install -r requirements.txt
 
 test:
-	py.test tests
+	py.test --verbose tests
+	pytest --cov=calculator tests/
 

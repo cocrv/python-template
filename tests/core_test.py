@@ -9,6 +9,7 @@ secondRandomFloat = uniform(0,999)
 def test_addShouldAddValues():
     expectedReturnValue = randomInteger + secondRandomInteger
     assert core.add(randomInteger, secondRandomInteger) == expectedReturnValue
+    assert core.add
 
 def test_multiplyShouldMultiplyValues():
     expectedReturnValue = randomInteger * secondRandomInteger
@@ -17,6 +18,13 @@ def test_multiplyShouldMultiplyValues():
 def test_divideShouldDivideValues():
     expectedReturnValue = randomFloat / secondRandomFloat
     assert core.divide(randomFloat, secondRandomFloat) == expectedReturnValue
+
+def test_ShouldHandleDivideByZero():
+    expectedReturnValue = "You can't divide by 0"
+
+#def test_zero_division():
+#    with pytest.raises(ZeroDivisionError):
+#        1 / 0
 
 def test_subtractShouldSubtractValues():
     expectedReturnValue = randomFloat - secondRandomFloat

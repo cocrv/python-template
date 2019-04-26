@@ -17,39 +17,43 @@ secondRandomFloat    = uniform(MIN_NUM, MAX_NUM)
 allchar              = string.ascii_letters + string.punctuation + string.digits
 randomString         = "".join(choice(allchar) for x in range(randint(MIN_CHAR, MAX_CHAR)))
 
-def test_add_ShouldAddValues():
-    expectedReturnValue = randomInteger + secondRandomInteger
-    assert calc_func.add(randomInteger, secondRandomInteger) == expectedReturnValue
+def describe_add():
+    def it_shouldAddValues():
+        expectedReturnValue = randomInteger + secondRandomInteger
+        assert calc_func.add(randomInteger, secondRandomInteger) == expectedReturnValue
 
-def test_add_ShouldNotAllowStrings():
-    expectedReturnValue = "You must provide a number."
-    assert calc_func.add(randomInteger, randomString) == expectedReturnValue
+    def it_shouldNotAllowStrings():
+        expectedReturnValue = "You must provide a number."
+        assert calc_func.add(randomInteger, randomString) == expectedReturnValue
 
-def test_multiply_ShouldMultiplyValues():
-    expectedReturnValue = randomInteger * secondRandomInteger
-    assert calc_func.multiply(randomInteger, secondRandomInteger) == expectedReturnValue
+def describe_muliply():
+    def it_shouldMultiplyValues():
+        expectedReturnValue = randomInteger * secondRandomInteger
+        assert calc_func.multiply(randomInteger, secondRandomInteger) == expectedReturnValue
 
-def test_multiply_ShouldNotAllowStrings():
-    expectedReturnValue = "You must provide a number."
-    assert calc_func.multiply(randomInteger, randomString) == expectedReturnValue
+    def it_shouldNotAllowStrings():
+        expectedReturnValue = "You must provide a number."
+        assert calc_func.multiply(randomInteger, randomString) == expectedReturnValue
 
-def test_divide_ShouldDivideValues():
-    expectedReturnValue = randomFloat / secondRandomFloat
-    assert calc_func.divide(randomFloat, secondRandomFloat) == expectedReturnValue
+def describe_divide():
+    def it_shouldDivideValues():
+        expectedReturnValue = randomFloat / secondRandomFloat
+        assert calc_func.divide(randomFloat, secondRandomFloat) == expectedReturnValue
 
-def test_divide_ShouldNotAllowStrings():
-    expectedReturnValue = "You must provide a number."
-    assert calc_func.divide(randomInteger, randomString) == expectedReturnValue
+    def it_shouldNotAllowStrings():
+        expectedReturnValue = "You must provide a number."
+        assert calc_func.divide(randomInteger, randomString) == expectedReturnValue
 
-def test_divide_ShouldHandleDivideByZero():
-    expectedReturnValue = "You can't divide by zero."
-    assert calc_func.divide(randomFloat, 0) == expectedReturnValue
+    def it_shouldHandleDivideByZero():
+        expectedReturnValue = "You can't divide by zero."
+        assert calc_func.divide(randomFloat, 0) == expectedReturnValue
 
-def test_subtract_ShouldSubtractValues():
-    expectedReturnValue = randomFloat - secondRandomFloat
-    assert calc_func.subtract(randomFloat, secondRandomFloat) == expectedReturnValue
+def describe_subtract():
+    def it_shouldSubtractValues():
+        expectedReturnValue = randomFloat - secondRandomFloat
+        assert calc_func.subtract(randomFloat, secondRandomFloat) == expectedReturnValue
 
-def test_subtract_ShouldNotAllowStrings():
-    expectedReturnValue = "You must provide a number."
-    assert calc_func.subtract(randomInteger, randomString) == expectedReturnValue
+    def it_shouldNotAllowStrings():
+        expectedReturnValue = "You must provide a number."
+        assert calc_func.subtract(randomInteger, randomString) == expectedReturnValue
 

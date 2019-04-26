@@ -1,8 +1,9 @@
 .PHONY: init test
 
 init:
-	virtualenv -p /usr/bin/python3.7 venv && \
-	source venv/bin/activate && \
+	virtualenv -p /usr/bin/python3.7 venv
+
+install:
 	pip install -r requirements.txt 
 
 test:

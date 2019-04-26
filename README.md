@@ -3,5 +3,5 @@
 This is a python project template. 
 
 ```
-source venv/bin/activate && make init
+make init && source venv/bin/activate && make install
 ```

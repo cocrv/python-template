@@ -1,5 +1,7 @@
 import string
+import unittest
 
+from mock import Mock, MagicMock, patch
 from context import calc_func
 from random import randint, uniform, choice
 
@@ -17,43 +19,45 @@ secondRandomFloat    = uniform(MIN_NUM, MAX_NUM)
 allchar              = string.ascii_letters + string.punctuation + string.digits
 randomString         = "".join(choice(allchar) for x in range(randint(MIN_CHAR, MAX_CHAR)))
 
-def describe_add():
-    def it_shouldAddValues():
+class describe_add(unittest.TestCase):
+    def test__it_shouldAddValues(self):
         expectedReturnValue = randomInteger + secondRandomInteger
-        assert calc_func.add(randomInteger, secondRandomInteger) == expectedReturnValue
+        self.assertEqual(calc_func.add(randomInteger, secondRandomInteger), expectedReturnValue)
 
-    def it_shouldNotAllowStrings():
+    def test__it_shouldNotAllowStrings(self):
         expectedReturnValue = "You must provide a number."
-        assert calc_func.add(randomInteger, randomString) == expectedReturnValue
+        self.assertEqual(calc_func.add(randomInteger, randomString), expectedReturnValue)
 
-def describe_muliply():
-    def it_shouldMultiplyValues():
+class describe_multiply(unittest.TestCase):
+    def test__it_shouldMultiplyValues(self):
         expectedReturnValue = randomInteger * secondRandomInteger
-        assert calc_func.multiply(randomInteger, secondRandomInteger) == expectedReturnValue
+        self.assertEqual(calc_func.multiply(randomInteger, secondRandomInteger), expectedReturnValue)
 
-    def it_shouldNotAllowStrings():
+    def test__it_shouldNotAllowStrings(self):
         expectedReturnValue = "You must provide a number."
-        assert calc_func.multiply(randomInteger, randomString) == expectedReturnValue
+        self.assertEqual(calc_func.multiply(randomInteger, randomString), expectedReturnValue)
 
-def describe_divide():
-    def it_shouldDivideValues():
+class describe_divide(unittest.TestCase):
+    def test__it_shouldDivideValues(self):
         expectedReturnValue = randomFloat / secondRandomFloat
-        assert calc_func.divide(randomFloat, secondRandomFloat) == expectedReturnValue
+        self.assertEqual(calc_func.divide(randomFloat, secondRandomFloat), expectedReturnValue)
 
-    def it_shouldNotAllowStrings():
+    def test__it_shouldNotAllowStrings(self):
         expectedReturnValue = "You must provide a number."
-        assert calc_func.divide(randomInteger, randomString) == expectedReturnValue
+        self.assertEqual(calc_func.divide(randomInteger, randomString), expectedReturnValue)
 
-    def it_shouldHandleDivideByZero():
+    def test__it_shouldHandleDivideByZero(self):
         expectedReturnValue = "You can't divide by zero."
-        assert calc_func.divide(randomFloat, 0) == expectedReturnValue
+        self.assertEqual(calc_func.divide(randomFloat, 0), expectedReturnValue)
 
-def describe_subtract():
-    def it_shouldSubtractValues():
+class describe_subtract(unittest.TestCase):
+    def test__it_shouldSubtractValues(self):
         expectedReturnValue = randomFloat - secondRandomFloat
-        assert calc_func.subtract(randomFloat, secondRandomFloat) == expectedReturnValue
+        self.assertEqual(calc_func.subtract(randomFloat, secondRandomFloat), expectedReturnValue)
 
-    def it_shouldNotAllowStrings():
+    def test__it_shouldNotAllowStrings(self):
         expectedReturnValue = "You must provide a number."
-        assert calc_func.subtract(randomInteger, randomString) == expectedReturnValue
+        self.assertEqual(calc_func.subtract(randomInteger, randomString), expectedReturnValue)
 
+if __name__=='__main__':
+      unittest.main()

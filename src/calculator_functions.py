@@ -1,8 +1,4 @@
-def isString(x, y):
-    if isinstance(x, str) or isinstance(y, str):
-        return True
-    else:
-        return False
+from .helpers import isString
 
 def add(x, y):
     if isString(x, y):
